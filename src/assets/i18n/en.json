@@ -80,6 +80,7 @@
         "JOBS": "Jobs"
       }
     },
+
     "LAYOUTS": {
       "TEXT": "Layouts",
       "LIST": {
@@ -93,6 +94,17 @@
         "LIGHTTOPBAR": "Light Topbar",
         "COLOREDHEADER": "Colored Header",
         "SCROLLABLE": "Scrollable"
+      }
+    },
+    "MATERIAL-MOVEMENT": {
+      "TEXT": "Material-movement",
+      "BADGE": "04",
+      "LIST": {
+        "PURCHASE-REQUISTION": "Purchase-requistion-creation",
+        "PURCHASE-MODIFICATION": "Purchase-requistion-modification",
+        "LIST-OF-PURCHASE":"listofpurchaserequisition",
+        "MB52-STOCK-OVERVIEW":"mb52stockoverview"
+
       }
     },
     "APPS": {

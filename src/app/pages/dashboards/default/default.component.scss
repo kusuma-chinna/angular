@@ -1,39 +1,99 @@
-.floating-label {
-    position: relative;
-    margin-bottom: 1.5rem;
-  }
+// .form-container {
+//   max-width: 600px;
+//   margin: 20px auto;
+//   padding: 20px;
+//   background-color: #6cf3f1;
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+//   .form-heading {
+//     text-align: center; /* Center the text */
+//     font-size: 32px; /* Increase the font size */
+//     font-weight: bold; /* Make it bold */
+//     color: #d983b4; /* Adjust the color if needed */
+//     margin-bottom: 20px; /* Add some spacing below */
+//   }
   
-  .floating-input {
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: transparent;
-    outline: none;
-  }
+
+//   div {
+//     margin-bottom: 15px;
+
+//     label {
+//       display: block;
+//       margin-bottom: 5px;
+//       font-weight: bold;
+//       color: #333;
+//     }
+
+//     input {
+//       width: calc(100% - 16px);
+//       padding: 8px;
+//       border: 1px solid #ccc;
+//       border-radius: 4px;
+//       font-size: 16px;
+
+//       &:focus {
+//         border-color: #d983b4;
+//         outline: none;
+//         box-shadow: 0 0 5px rgba(217, 131, 180, 0.5);
+//       }
+//     }
+
+//     button {
+//       padding: 10px 15px;
+//       background-color: #d983b4;
+//       border: none;
+//       border-radius: 4px;
+//       color: white;
+//       font-size: 16px;
+//       cursor: pointer;
+//       transition: background-color 0.3s;
+
+//       &:hover {
+//         background-color: #c26c9e;
+//       }
+//     }
+//   }
+
+//   h3 {
+//     text-align: center;
+//     margin: 20px 0;
+//     color: #555;
+//   }
+
+//   table {
+//     width: 100%;
+//     border-collapse: collapse;
+//     margin-top: 10px;
+
+//     thead {
+//       background-color: #e9f3e9;
+
+//       th {
+//         padding: 8px;
+//         border: 1px solid #ddd;
+//         color: #dc7f87;
+//         font-weight: bold;
+//         text-align: left;
+//       }
+//     }
+
+//     tbody {
+//       background-color: #dce3e4;
+
+//       tr {
+//         &:hover {
+//           background-color: #f2f2f2;
+//         }
+//       }
+
+//       td {
+//         padding: 8px;
+//         border: 1px solid #ddd;
+//         color: #d9808c;
+//         text-align: left;
+//       }
+//     }
+//   }
   
-  .floating-label label {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    font-size: 12px;
-    color: #666;
-    transition: all 0.2s ease;
-  }
-  
-  /* Floating label effect when input is focused or filled */
-  .floating-input:focus + label,
-  .floating-input:not(:placeholder-shown) + label {
-    top: -10px;
-    left: 15px;
-    font-size: 12px;
-    color: #007bff;
-  }
-  
-  .floating-input:focus {
-    border-color: #007bff;
-  }
-  
+// }

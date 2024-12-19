@@ -1,0 +1,72 @@
+<div class="container mt-4">
+    <!-- Card 1: Requisition Input -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Requisition Details</h5>
+        </div>
+        <div class="card-body">
+            <!-- Form Row with 3 Fields and Save Button in a Single Line -->
+            <div class="form-row d-flex align-items-center">
+                <div class="form-group col-md-3">
+                    <label for="requisitionName">Requisition Name:</label>
+                    <input type="text" id="requisitionName" class="form-control" [(ngModel)]="requisitionName" placeholder="Enter Requisition Name" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="documentType">Document Type:</label>
+                    <input type="text" id="documentType" class="form-control" [(ngModel)]="documentType" placeholder="Enter Document Type" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="plant">Plant:</label>
+                    <input type="text" id="plant" class="form-control" [(ngModel)]="plant" placeholder="Enter Plant Name" />
+                </div>
+                <!-- Save Button -->
+                <div class="form-group col-md-2">
+                    <button class="btn btn-success mt-4 w-100" (click)="saveData()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Table Section -->
+    <div *ngIf="tableData.length > 0" class="mt-4">
+        <table class="table table-bordered table-sm text-center">
+            <thead class="table-success">
+                <tr>
+                    <th>Purchase Requisition Item</th>
+                    <th>AcctAssCat</th>
+                    <th>Item Category</th>
+                    <th>Material No</th>
+                    <th>Short Text</th>
+                    <th>Purchase Requisition Quantity</th>
+                    <th>UOM</th>
+                    <th>Item Delivery</th>
+                    <th>Storage Location</th>
+                    <th>Purchasing Group</th>
+                    <th>Requisition Name</th>
+                    <th>Plant</th>
+                    <th>Valuation</th>
+                    <th>Requirement Tracking No</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of tableData">
+                    <td>{{ item.bnfpo }}</td>
+                    <td>{{ item.AcctAssCat }}</td>
+                    <td>{{ item.itemcategory }}</td>
+                    <td>{{ item.matnr }}</td>
+                    <td>{{ item.stext }}</td>
+                    <td>{{ item.menge }}</td>
+                    <td>{{ item.meins }}</td>
+                    <td>{{ item.lfdat }}</td>
+                    <td>{{ item.lgort }}</td>
+                    <td>{{ item.prgrp }}</td>
+                    <td>{{ item.afnam }}</td>
+                    <td>{{ item.werks }}</td>
+                    <td>{{ item.bwtar }}</td>
+                    <td>{{ item.trackingNo }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

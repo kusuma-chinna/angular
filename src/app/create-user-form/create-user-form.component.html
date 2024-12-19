@@ -1,0 +1,136 @@
+<div class="form-container">
+  <h2 class="form-heading">Create New User</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <!-- Username -->
+    <div class="form-group">
+      <label>Username</label>
+      <input
+        type="text"
+        formControlName="username"
+        [class.invalid]="userForm.get('username').invalid && userForm.get('username').touched"
+        autocomplete="off"
+      />
+      <div *ngIf="userForm.get('username').invalid && userForm.get('username').touched" class="error">
+        Username is required
+      </div>
+    </div>
+ 
+    <!-- First Name -->
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" formControlName="firstName" />
+    </div>
+ 
+    <!-- Last Name -->
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" formControlName="lastName" />
+    </div>
+ 
+    <!-- Contact -->
+    <div class="form-group">
+      <label>Contact</label>
+      <input type="text" formControlName="contact" />
+    </div>
+ 
+    <!-- Email -->
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" formControlName="email" />
+    </div>
+ 
+    <!-- Password -->
+    <div class="form-group">
+      <label>Password</label>
+      <input
+    type="password"
+    formControlName="password"
+    autocomplete="new-password"  
+  />
+    </div>
+ 
+    <!-- Confirm Password -->
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input type="password" formControlName="confirmPassword" />
+    </div>
+ 
+    <!-- Category -->
+    <div class="form-group">
+      <label>Category</label>
+      <select formControlName="category">
+        <option value="internal">Internal</option>
+        <option value="external">External</option>
+      </select>
+    </div>
+ 
+    <div class="form-group">
+      <label>Activities</label>
+      <div class="activity-container">
+        
+        <button class="select-activities-btn" (click)="selectActivities()">Select Activities</button>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+ 
+    <div class="form-group">
+      <label>Roles</label>
+      <select formControlName="roles">
+        <option value="admin">ADMIN</option>
+        <option value="user">SUPER ADMIN</option>
+        <option value="analyst">ANALYST</option>
+        <option value="production">PRODUCTION DEPARTMENT</option>
+      </select>
+    </div>
+ 
+    <!-- Plant and Division -->
+    <div class="form-row">
+      <!-- Plant -->
+      <div class="form-group">
+        <label>Plant</label>
+        <select formControlName="plant">
+          <option value="selectAll">Select All</option>
+          <option value="1100">1100</option>
+          <option value="1200">1200</option>
+          <option value="1300">1300</option>
+          <option value="1400">1400</option>
+          <option value="1500">1500</option>
+        </select>
+      </div>
+    </div>
+ 
+      <!-- Division -->
+      <div class="form-group">
+        <label>Division</label>
+        <select formControlName="division">
+          <option value="division1">Division 1</option>
+          <option value="division2">Division 2</option>
+        </select>
+      </div>
+ 
+    
+    <div class="form-group">
+      
+      <div class="status-toggle">
+        <label>Inactive</label>
+        <label class="switch">
+          <input type="checkbox" formControlName=" " (change)="onStatusChange($event)" />
+          <span class="slider"></span>
+        </label>
+        <span class="status-label">{{ statusLabel }}</span>
+        <label>Active</label>
+      </div>
+      
+    </div>
+    
+ 
+    <!-- Buttons -->
+    <div class="form-actions">
+      <button type="button" (click)="onClose()">Close</button>
+      <button type="button" (click)="onCreate">Create</button>
+    </div>
+</form>

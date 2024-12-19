@@ -10,23 +10,22 @@ import { JwtInterceptor } from './app/core/helpers/jwt.interceptor';
 import { ErrorInterceptor } from './app/core/helpers/error.interceptor';
 import { provideRouter } from '@angular/router';
 
-// ** Update Firebase Imports **
+
+
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
-// Enable production mode if in production environment
+
 if (environment.production) {
   enableProdMode();
 }
 
-// Initialize Firebase based on the configuration
 if (environment.defaultauth === 'firebase') {
   initFirebaseBackend(environment.firebaseConfig);
 } else {
   FakeBackendInterceptor;
 }
 
-// ** Firebase Modular Initialization **
 
 const firebaseConfig = {
   apiKey: 'YOUR_API_KEY',
@@ -37,9 +36,7 @@ const firebaseConfig = {
   appId: 'YOUR_APP_ID',
 };
 
-// Initialize Firebase app
 const firebaseApp = initializeApp(firebaseConfig);
-// Initialize Firebase Authentication
 const auth = getAuth(firebaseApp);
 
 bootstrapApplication(AppComponent, {

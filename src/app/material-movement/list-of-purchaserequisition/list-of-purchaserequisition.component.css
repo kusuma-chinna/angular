@@ -1,0 +1,72 @@
+/* Global container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Card styling */
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Card header */
+  .card-header {
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: #007bff !important; /* Bootstrap bg-primary color */
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  /* Input field spacing and styling */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+  }
+  
+  /* Table styles */
+  .table {
+    width: 100%;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    background-color: #fff;
+  }
+  
+  .table th {
+    background-color: #28a745;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .table td, .table th {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Button styling */
+  .btn-success {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+  }
+  
+  .d-grid {
+    margin-bottom: 10px;
+  }
+  

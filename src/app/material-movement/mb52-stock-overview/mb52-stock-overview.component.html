@@ -1,0 +1,92 @@
+<div class="container mt-4">
+    <!-- Card 1: Requisition Input -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Requisition Details</h5>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <!-- Material -->
+                    <div class="col-md-4 form-group">
+                        <label for="material">Material:</label>
+                        <input type="text" id="material" class="form-control" [(ngModel)]="material" name="material"
+                            placeholder="Enter Material" />
+                    </div>
+                    <!-- Plant -->
+                    <div class="col-md-4 form-group">
+                        <label for="plant">Plant:</label>
+                        <input type="text" id="plant" class="form-control" [(ngModel)]="plant" name="plant"
+                            placeholder="Enter Plant" />
+                    </div>
+                    <!-- Storage Location -->
+                    <div class="col-md-4 form-group">
+                        <label for="storagelocation">Storage Location:</label>
+                        <input type="text" id="storagelocation" class="form-control" [(ngModel)]="storagelocation"
+                            name="storagelocation" placeholder="Enter Storage Location" />
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <!-- Batch -->
+                    <div class="col-md-4 form-group">
+                        <label for="batch">Batch:</label>
+                        <input type="text" id="batch" class="form-control" [(ngModel)]="batch" name="batch"
+                            placeholder="Enter Batch" />
+                    </div>
+                </div>
+
+                <!-- Button Row -->
+                <div class="row mt-3">
+                    <div class="col-md-4 offset-md-4 text-center">
+                        <button type="button" class="btn btn-success" (click)="getData()">Get Data</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Table Display -->
+    <div *ngIf="tableData && tableData.length > 0" class="mt-4">
+        <table class="table table-bordered table-sm text-center">
+            <thead class="table-success">
+                <tr>
+                    <th>Material</th>
+                    <th>Material Description</th>
+                    <th>Plant</th>
+                    <th>Location</th>
+                    <th>Material No</th>
+                    <th>Batch</th>
+                    <th>Sales Order</th>
+                    <th>SO Item</th>
+                    <th>BUoM</th>
+                    <th>Unrestricted</th>
+                    <th>Value Unrestricted</th>
+                    <th>Block Stock</th>
+                    <th>Value Block Stock</th>
+                    <th>Quality Stock</th>
+                    <th>Value Quality Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of tableData">
+                    <td>{{ item.material }}</td>
+                    <td>{{ item.materialDescription }}</td>
+                    <td>{{ item.plant }}</td>
+                    <td>{{ item.location }}</td>
+                    <td>{{ item.materialNo }}</td>
+                    <td>{{ item.batch }}</td>
+                    <td>{{ item.salesOrder }}</td>
+                    <td>{{ item.soItem }}</td>
+                    <td>{{ item.buom }}</td>
+                    <td>{{ item.unrestricted }}</td>
+                    <td>{{ item.valueUnrestricted }}</td>
+                    <td>{{ item.blockStock }}</td>
+                    <td>{{ item.valueBlockStock }}</td>
+                    <td>{{ item.qualityStock }}</td>
+                    <td>{{ item.valueQualityStock }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -36,7 +36,7 @@ import { ChartModule } from './chart/chart.module';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MapsModule } from './maps/maps.module';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-
+import { MaterialMovementModule } from '../material-movement/material-movement.module';
 @NgModule(
         {
                 declarations: [],
@@ -70,7 +70,8 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
                         AlertModule.forRoot(),
                         SimplebarAngularModule,
                         LightboxModule,
-                        PickerModule],
+                        PickerModule,
+                        MaterialMovementModule],
                 providers: [provideHttpClient(withInterceptorsFromDi())]
         })
 export class PagesModule { }

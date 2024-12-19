@@ -23,6 +23,12 @@ export const routes: Routes = [
             import("./extrapages/extrapages.module").then((m) => m.ExtrapagesModule),
         canActivate: [AuthGuard],
     },
+    {
+        path: "material-movement",
+        loadChildren: () =>
+            import("./material-movement/material-movement.module").then((m) => m.MaterialMovementModule),
+        canActivate: [AuthGuard],
+    },
     { path: "crypto-ico-landing", component: CyptolandingComponent },
     { path: "**", component: Page404Component },
 ];

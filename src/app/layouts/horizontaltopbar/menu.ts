@@ -3,7 +3,7 @@ import { MenuItem } from './menu.model';
 export const MENU: MenuItem[] = [
     {
         id: 1,
-        label: 'MENUITEMS.DASHBOARDS.TEXT',
+        label: 'MENUITEMS.S.TEXT',
         icon: 'bx-home-circle',
         isCollapsed: false,
         subItems: [
