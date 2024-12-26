@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { MaterialMovementRoutingModule } from './material-movement-routing.module';
@@ -20,6 +20,7 @@ import { MB52StockOverviewComponent } from './mb52-stock-overview/mb52-stock-ove
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
 
     MaterialMovementRoutingModule
   ]

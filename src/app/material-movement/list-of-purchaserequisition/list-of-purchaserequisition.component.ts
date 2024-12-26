@@ -23,20 +23,21 @@ export class ListOfPurchaserequisitionComponent {
       // Currently, we are adding static mock data for the table.
       this.tableData = [
         {
-          purchaserequisitionnumber: '1',
-          purchaserequisitionitem: '1',
+          purchaserequisitionnumber: '123456',
+          bnfpo: '1',
           AcctAssCat: 'A',
           itemcategory: 'B',
-          materialno: '1000011852',
-          shorttext: 'NICKEL ANODE',
-          purchaserequisition: '12345',
-          UOM: 'KG',
-          itemdelivery: '30.10.2024',
-          storagelocation: 'S016',
-          purchasinggroup: '010',
-          requisitionname: 'ABS',
-          plant: '1100',
-          valuationtype: 'RM-DOM',
+          matnr: '1000011852',
+          stext: 'NICKEL ANODE',
+          menge: '12345',
+          meins: 'KG',
+          iffat: '30.10.2024',
+          igort: 'S016',
+          prgrp: '010',
+          afnan: 'ABS',
+          werks: '1100',
+          bwtar: 'RM-DOM',
+          trackingno: '12345',
         }
       ];
       

@@ -33,25 +33,25 @@ export const MENU: MenuItem[] = [
         subItems: [
             {
                 id: 7,
-                label: 'purchase-requistion',
+                label: 'Purchase-Requistion',
                 link: '/material-movement/purchaserequistioncreation',
                 parentId: 6
             },
             {
                 id: 8,
-                label: 'purchase-modification',
+                label: 'Purchase-Modification',
                 link: '/material-movement/purchaserequistionmodification',
                 parentId: 6
             },
             {
                 id: 9,
-                label: 'list-of-purchaserequisitioncomponent',
+                label: 'Purchase-Requition-List',
                 link: '/material-movement/listofpurchaserequisitioncomponent',
                 parentId: 6
             },
             {
                 id: 10,
-                label: 'mb52-stock-overviewcomponent',
+                label: 'MB52-Stock-Overview',
                 link: '/material-movement/mb52-stock-overviewcomponent',
                 parentId: 6
             },

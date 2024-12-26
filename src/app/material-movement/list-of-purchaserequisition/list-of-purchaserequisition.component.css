@@ -1,6 +1,6 @@
 /* Global container styling */
 .container {
-    max-width: 1200px;
+  max-width: 200%;
     margin: 0 auto;
   }
   
@@ -8,6 +8,7 @@
   .card {
     border: 1px solid #ddd;
     border-radius: 8px;
+    background-color: gray;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -15,7 +16,7 @@
   .card-header {
     font-size: 1.3rem;
     font-weight: bold;
-    background-color: #007bff !important; /* Bootstrap bg-primary color */
+    background-color: teal !important; /* Bootstrap bg-primary color */
     color: white;
     padding: 10px;
     text-align: center;
@@ -39,7 +40,7 @@
   }
   
   .table th {
-    background-color: #28a745;
+    background-color: teal;
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
@@ -64,6 +65,7 @@
     padding: 8px 20px;
     font-size: 0.9rem;
     border-radius: 4px;
+    background-color: maroon;
   }
   
   .d-grid {

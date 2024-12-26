@@ -24,7 +24,7 @@ export class MB52StockOverviewComponent {
         materialDescription: '',
         plant: this.plant,
         location: this.storagelocation,
-        materialNo: '',
+        // materialNo: '',
         batch: this.batch,
         salesOrder: '',
         soItem: '',
