@@ -37,9 +37,9 @@ export class CrudService {
         return this.http.post('http://localhost:3000/api/sales-report', requestData, { params });
       }
 
-      postPurchaseCreate(data) {
-        
-        return this.http.post('http://localhost:9091/api/purchase/create', data);
-      }  
+      postPurchaseCreate(payload: any, p0: unknown): Observable<any> {
+        return this.http.post('http://localhost:9091/api/purchase/create', payload);
+      }
+      
       
 }

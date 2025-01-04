@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { options } from '@fullcalendar/core/preact';
 import { CrudService } from 'src/app/core/services/crud.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class PurchaseRequisitionCreationComponent {
   requisitionName: string;
   documentType: string;
   plant: string;
+  standalone: true;
 
   expandedRows: boolean[] = [];
 
@@ -34,20 +36,20 @@ export class PurchaseRequisitionCreationComponent {
   addRow() {
     this.tableRows.push(
       this.fb.group({
-        bnfpo: ['1', Validators.required],
-        AcctAssCat: ['A'],
-        itemcategory: ['B'],
-        matnr: ['1000011852', Validators.required],
-        stext: ['NICKEL ANODE 42278', Validators.required],
-        menge: ['112', Validators.required],
-        meins: ['KG', Validators.required],
-        lfdat: ['30-10-2024', Validators.required],
-        lgort: ['S016', Validators.required],
-        prgrp: ['010', Validators.required],
-        afnam: ['ABS', Validators.required],
-        werks: ['1100', Validators.required],
-        bwtar: ['RM-DOM', Validators.required],
-        TRACKINGNO: ['12345', Validators.required],
+        bnfpo: ['', Validators.required],
+        AcctAssCat: [''],
+        itemcategory: [''],
+        matnr: ['', Validators.required],
+        stext: ['', Validators.required],
+        menge: ['', Validators.required],
+        meins: ['', Validators.required],
+        lfdat: ['', Validators.required],
+        lgort: ['', Validators.required],
+        prgrp: ['', Validators.required],
+        afnam: ['', Validators.required],
+        werks: ['', Validators.required],
+        bwtar: ['', Validators.required],
+        TRACKINGNO: ['', Validators.required],
       })
     );
     this.expandedRows.push(false); // Initialize expanded state for new row
@@ -75,29 +77,38 @@ export class PurchaseRequisitionCreationComponent {
   // Save data from the form
   saveData(): void {
     console.log('Save button clicked');
-      const PurchaseCreate = {
-        requisitionName: this.requisitionName,
-        documentType: this.documentType,
-        plant: this.plant,
-      
-      };
-      const refBody =  {
-        data :this.purchaseRequisitionForm.value.requisitionDetails,
-      }
-      
-
-      console.log('Saved Data:', PurchaseCreate);
-       this.service.postPurchaseCreate(refBody).subscribe((res: any) => {
-        console.log('res',res)
-
-       })
-      // Reset the form after saving
-      this.purchaseRequisitionForm.reset();
-      this.requisitionName = '';
-      this.documentType = '';
-      this.plant = '';
-      this.tableRows.clear();
-      this.addRow(); // Add a new row for next entry
+    
+    // Construct the payload for the backend
+    const refBody = this.tableRows.value.map((row: any) => ({
+      BSART: this.documentType, // Map your fields to match the payload structure
+      MATNR: row.matnr,
+      MENGE: row.menge,
+      WERKS: row.werks,
+      EKGRP: row.prgrp,
+      PREIS: row.preis || '300', // Example price field, add it if needed
+      WAERS: row.waers || 'USD', // Example currency field, add it if needed
+    }));
   
+    console.log('Payload sent to backend:', refBody);
+  
+    this.service.postPurchaseCreate(refBody, options).subscribe({
+      next: (response) => {
+        console.log('Response from backend:', response);
+        alert('Purchase successfully created!');
+      },
+      error: (err) => {
+        console.error('Error while creating purchase:', err);
+        alert(`Failed to create purchase. Status: ${err.status}, Message: ${err?.error?.message || err.message || 'Unknown error'}`);
+
+      },
+    });
+    
+    // Reset the form after saving
+    this.purchaseRequisitionForm.reset();
+    this.requisitionName = '';
+    this.documentType = '';
+    this.plant = '';
+    this.tableRows.clear();
+    this.addRow(); // Add a new row for next entry
   }
-}
+}  

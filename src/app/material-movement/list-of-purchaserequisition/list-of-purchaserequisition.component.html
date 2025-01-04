@@ -6,50 +6,48 @@
         </div>
         <div class="card-body">
             <form>
-                <div class="row">
+                <div class="row mt-4">
                     <!-- Document Type -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="documentType">Document Type:</label>
                         <input type="text" id="documentType" class="form-control" [(ngModel)]="documentType"
                             placeholder="Enter Document Type" />
                     </div>
                     <!-- Plant -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="plant">Plant:</label>
                         <input type="text" id="plant" class="form-control" [(ngModel)]="plant"
                             placeholder="Enter Plant Name" />
                     </div>
                     <!-- Purchase Requisition -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="purchaseRequisition">Purchase Requisition:</label>
                         <input type="text" id="purchaseRequisition" class="form-control" [(ngModel)]="purchaseRequisition"
                             placeholder="Enter Purchase Requisition" />
                     </div>
-                </div>
-
-                <div class="row">
-                    <!-- Material -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="material">Material:</label>
                         <input type="text" id="material" class="form-control" [(ngModel)]="material"
                             placeholder="Enter Material" />
                     </div>
                     <!-- Delivery Date -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="deliveryDate">Delivery Date:</label>
                         <input type="date" id="deliveryDate" class="form-control" [(ngModel)]="deliveryDate" />
                     </div>
                     <!-- Requisitioner -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="requisitioner">Requisitioner:</label>
                         <input type="text" id="requisitioner" class="form-control" [(ngModel)]="requisitioner"
                             placeholder="Enter Requisitioner" />
                     </div>
                 </div>
 
+               
+
                 <!-- Button Row -->
                 <div class="row mt-3">
-                    <div class="col-md-4 offset-md-4 text-center">
+                    <div class="col-md-12 text-end">
                         <button class="btn btn-success" (click)="getData()">Get Data</button>
                     </div>
                 </div>

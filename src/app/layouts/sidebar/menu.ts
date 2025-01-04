@@ -32,25 +32,32 @@ export const MENU: MenuItem[] = [
         icon: 'bx-home-circle',
         subItems: [
             {
-                id: 7,
+                    id: 7,
+                    label: 'Dashboard',
+                    link: '/dashboard',
+                    parentId: 6
+                },
+            {
+                id: 8,
                 label: 'Purchase-Requistion',
+                
                 link: '/material-movement/purchaserequistioncreation',
                 parentId: 6
             },
             {
-                id: 8,
+                id: 9,
                 label: 'Purchase-Modification',
                 link: '/material-movement/purchaserequistionmodification',
                 parentId: 6
             },
             {
-                id: 9,
+                id: 10,
                 label: 'Purchase-Requition-List',
                 link: '/material-movement/listofpurchaserequisitioncomponent',
                 parentId: 6
             },
             {
-                id: 10,
+                id: 11,
                 label: 'MB52-Stock-Overview',
                 link: '/material-movement/mb52-stock-overviewcomponent',
                 parentId: 6

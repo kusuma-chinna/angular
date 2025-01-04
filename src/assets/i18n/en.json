@@ -103,7 +103,8 @@
         "PURCHASE-REQUISTION": "Purchase-requistion-creation",
         "PURCHASE-MODIFICATION": "Purchase-requistion-modification",
         "LIST-OF-PURCHASE":"listofpurchaserequisition",
-        "MB52-STOCK-OVERVIEW":"mb52stockoverview"
+        "MB52-STOCK-OVERVIEW":"mb52stockoverview",
+        "DASBOARD":"Dashboardcomponent"
 
       }
     },

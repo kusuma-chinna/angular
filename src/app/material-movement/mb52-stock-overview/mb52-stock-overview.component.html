@@ -6,39 +6,38 @@
         </div>
         <div class="card-body">
             <form>
-                <div class="row">
+                <div class="row mt-4">
                     <!-- Material -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="material">Material:</label>
                         <input type="text" id="material" class="form-control" [(ngModel)]="material" name="material"
                             placeholder="Enter Material" />
                     </div>
                     <!-- Plant -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="plant">Plant:</label>
                         <input type="text" id="plant" class="form-control" [(ngModel)]="plant" name="plant"
                             placeholder="Enter Plant" />
                     </div>
                     <!-- Storage Location -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="storagelocation">Storage Location:</label>
                         <input type="text" id="storagelocation" class="form-control" [(ngModel)]="storagelocation"
                             name="storagelocation" placeholder="Enter Storage Location" />
                     </div>
-                </div>
-
-                <div class="row mt-3">
-                    <!-- Batch -->
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="batch">Batch:</label>
                         <input type="text" id="batch" class="form-control" [(ngModel)]="batch" name="batch"
                             placeholder="Enter Batch" />
                     </div>
+                    
                 </div>
+
+           
 
                 <!-- Button Row -->
                 <div class="row mt-3">
-                    <div class="col-md-4 offset-md-4 text-center">
+                    <div class="col-md-12 text-end">
                         <button type="button" class="btn btn-success" (click)="getData()">Get Data</button>
                     </div>
                 </div>

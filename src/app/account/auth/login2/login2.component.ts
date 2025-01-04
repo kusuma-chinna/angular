@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../../core/services/auth.service';
 import { AuthfakeauthenticationService } from '../../../core/services/authfake.service';
 import { login } from 'src/app/store/Authentication/authentication.actions';
@@ -23,7 +23,7 @@ export class Login2Component implements OnInit {
 
   constructor(private formBuilder: UntypedFormBuilder, private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService,
     private authFackservice: AuthfakeauthenticationService, public store: Store) { }
-  loginForm: UntypedFormGroup;
+  loginForm: FormGroup;
   submitted: any = false;
   error: any = '';
   returnUrl: string;
@@ -34,7 +34,7 @@ export class Login2Component implements OnInit {
   ngOnInit(): void {
     document.body.classList.add("auth-body-bg");
     this.loginForm = this.formBuilder.group({
-      email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
+      userid: ['admin@themesbrand.com', [Validators.required, Validators.email]],
       password: ['123456', [Validators.required]],
     });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -58,11 +58,11 @@ export class Login2Component implements OnInit {
     this.submitted = true;
     this.submitted = true;
 
-    const email = this.f['email'].value; // Get the username from the form
+    const userid = this.f['userid'].value; // Get the username from the form
     const password = this.f['password'].value; // Get the password from the form
 
     // Login Api
-    this.store.dispatch(login({ email: email, password: password }));
+    this.store.dispatch(login({ email: userid, password: password }));
   }
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;

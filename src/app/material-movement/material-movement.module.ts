@@ -8,6 +8,7 @@ import { PurchaseRequisitionCreationComponent } from './purchase-requisition-cre
 import { PurchaseRequisitionModificationComponent } from './purchase-requisition-modification/purchase-requisition-modification.component';
 import { ListOfPurchaserequisitionComponent } from './list-of-purchaserequisition/list-of-purchaserequisition.component';
 import { MB52StockOverviewComponent } from './mb52-stock-overview/mb52-stock-overview.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -15,13 +16,14 @@ import { MB52StockOverviewComponent } from './mb52-stock-overview/mb52-stock-ove
     PurchaseRequisitionCreationComponent,
     PurchaseRequisitionModificationComponent,
     ListOfPurchaserequisitionComponent,
-    MB52StockOverviewComponent
+    MB52StockOverviewComponent,
+    DashboardComponent,
+    
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-
     MaterialMovementRoutingModule
   ]
   

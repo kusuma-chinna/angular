@@ -4,6 +4,7 @@ import { PurchaseRequisitionCreationComponent } from './purchase-requisition-cre
 import { PurchaseRequisitionModificationComponent } from './purchase-requisition-modification/purchase-requisition-modification.component';
 import { ListOfPurchaserequisitionComponent } from './list-of-purchaserequisition/list-of-purchaserequisition.component';
 import { MB52StockOverviewComponent } from './mb52-stock-overview/mb52-stock-overview.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,16 @@ const routes: Routes = [
   {
     path: 'mb52-stock-overviewcomponent',
     component: MB52StockOverviewComponent
+  },
+  { path: 'material-movement', loadChildren: () => import('./material-movement.module').then(m => m.MaterialMovementModule) },
+
+  {
+    path: "",
+    component: DashboardComponent
+  },
+  {
+    path: 'dashboard-component',
+    component: DashboardComponent
   },
   { path: 'material-movement', loadChildren: () => import('./material-movement.module').then(m => m.MaterialMovementModule) },
 
