@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 
 export class CrudService {
@@ -29,16 +29,14 @@ export class CrudService {
     // getSalesReport(data: any): Observable<any> {
     //     return this.http.post<any>('http://localhost:3000/api/sales-report', data);
     //   }
-    getSalesReport(page: number, pageSize: number, requestData: any) {
-        const params = new HttpParams()
-          .set('page', page)
-          .set('pageSize', pageSize);
-      
-        return this.http.post('http://localhost:3000/api/sales-report', requestData, { params });
-      }
+  
 
-      postPurchaseCreate(payload: any, p0: unknown): Observable<any> {
-        return this.http.post('http://localhost:9091/api/purchase/create', payload);
+      purchaseCreate(data: any): Observable<any> {
+        return this.http.post(`${environment.apiUrl}purchase/create`, data);
+      }
+      changePR(data: any){
+        return this.http.post(`${environment.apiUrl}purchase/change`, data);
+
       }
       
       

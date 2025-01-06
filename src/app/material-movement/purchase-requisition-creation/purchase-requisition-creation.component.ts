@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { options } from '@fullcalendar/core/preact';
 import { CrudService } from 'src/app/core/services/crud.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-purchase-requisition-creation',
@@ -11,9 +12,9 @@ import { CrudService } from 'src/app/core/services/crud.service';
 export class PurchaseRequisitionCreationComponent {
   purchaseRequisitionForm: FormGroup;
   rows: string[] = [];
-  requisitionName: string;
-  documentType: string;
-  plant: string;
+  requisitionName: any;
+  documentType: any;
+  plant: any;
   standalone: true;
 
   expandedRows: boolean[] = [];
@@ -36,20 +37,22 @@ export class PurchaseRequisitionCreationComponent {
   addRow() {
     this.tableRows.push(
       this.fb.group({
-        bnfpo: ['', Validators.required],
+        bnfpo: [''],
         AcctAssCat: [''],
         itemcategory: [''],
         matnr: ['', Validators.required],
-        stext: ['', Validators.required],
+        stext: [''],
         menge: ['', Validators.required],
-        meins: ['', Validators.required],
-        lfdat: ['', Validators.required],
-        lgort: ['', Validators.required],
+        meins: [''],
+        lfdat: [''],
+        lgort: [''],
         prgrp: ['', Validators.required],
-        afnam: ['', Validators.required],
+        afnam: [''],
         werks: ['', Validators.required],
         bwtar: ['', Validators.required],
         TRACKINGNO: ['', Validators.required],
+        ifdat:[''],
+        igort:['']
       })
     );
     this.expandedRows.push(false); // Initialize expanded state for new row
@@ -77,38 +80,59 @@ export class PurchaseRequisitionCreationComponent {
   // Save data from the form
   saveData(): void {
     console.log('Save button clicked');
-    
-    // Construct the payload for the backend
-    const refBody = this.tableRows.value.map((row: any) => ({
-      BSART: this.documentType, // Map your fields to match the payload structure
-      MATNR: row.matnr,
-      MENGE: row.menge,
-      WERKS: row.werks,
-      EKGRP: row.prgrp,
-      PREIS: row.preis || '300', // Example price field, add it if needed
-      WAERS: row.waers || 'USD', // Example currency field, add it if needed
-    }));
+    const reqBody = this.tableRows.controls.map((row: FormGroup) => {
+      console.log('row data',row)
+      return {
+        BSART: this.documentType, // Assuming documentType is a class-level property
+        MATNR: row.get('matnr')?.value, // Material number
+        MENGE: row.get('menge')?.value, // Quantity
+        WERKS:row.get('werks')?.value, // Plant
+        EKGRP: row.get('prgrp')?.value, // Purchasing group
+        PREIS: row.get('bwtar')?.value, // Valuation price
+        WAERS: 'USD', // Assuming currency is fixed as 'USD'
+      };
+    }); 
   
-    console.log('Payload sent to backend:', refBody);
+    console.log('Payload sent to backend:', reqBody);
   
-    this.service.postPurchaseCreate(refBody, options).subscribe({
-      next: (response) => {
-        console.log('Response from backend:', response);
-        alert('Purchase successfully created!');
-      },
-      error: (err) => {
-        console.error('Error while creating purchase:', err);
-        alert(`Failed to create purchase. Status: ${err.status}, Message: ${err?.error?.message || err.message || 'Unknown error'}`);
+ this.service.purchaseCreate(reqBody).subscribe((response)=>{
+console.log('response',response)
+const resp =response.data[0];
+if(resp){
+  Swal.fire({
+    text:resp.MESSAGE,
+    icon:'success',
+    showConfirmButton:true
+  })
 
-      },
-    });
-    
-    // Reset the form after saving
     this.purchaseRequisitionForm.reset();
     this.requisitionName = '';
     this.documentType = '';
     this.plant = '';
     this.tableRows.clear();
-    this.addRow(); // Add a new row for next entry
+    this.addRow(); 
+}else{
+  Swal.fire({
+    text:'Failed to create PR',
+    icon:'error',
+    showConfirmButton:true
+  })
+  this.purchaseRequisitionForm.reset();
+    this.requisitionName = '';
+    this.documentType = '';
+    this.plant = '';
+    this.tableRows.clear();
+    this.addRow();
+}
+
+ })
+    
+    // Reset the form after saving
+    // this.purchaseRequisitionForm.reset();
+    // this.requisitionName = '';
+    // this.documentType = '';
+    // this.plant = '';
+    // this.tableRows.clear();
+    // this.addRow(); // Add a new row for next entry
   }
 }  

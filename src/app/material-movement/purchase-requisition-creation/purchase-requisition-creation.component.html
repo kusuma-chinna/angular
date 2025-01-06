@@ -49,26 +49,29 @@
                   <th>Plant</th>
                   <th>Valuation</th>
                   <th>Requirement Tracking No</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let row of tableRows.controls; let i = index">
-                  <td><input type="text" id="bnfpo" class="form-control form-control-sm" placeholder="Enter Requisition Item" /></td>
-                  <td><input type="text" id="AcctAssCat" class="form-control form-control-sm" placeholder="Enter Account Assignment Category" /></td>
-                  <td><input type="text" id="itemcategory" class="form-control form-control-sm" placeholder="Enter Item Category" /></td>
-                  <td><input type="text" id="matnr" class="form-control form-control-sm" placeholder="Enter Material Number" /></td>
-                  <td><input type="text" id="stext" class="form-control form-control-sm" placeholder="Enter Short Text" /></td>
-                  <td><input type="text" id="menge" class="form-control form-control-sm" placeholder="Enter Quantity" /></td>
-                  <td><input type="text" id="meins" class="form-control form-control-sm" placeholder="Enter UOM" /></td>
-                  <td><input type="text" id="ifdat" class="form-control form-control-sm" placeholder="Enter Delivery Date" /></td>
-                  <td><input type="text" id="igort" class="form-control form-control-sm" placeholder="Enter Storage Location" /></td>
-                  <td><input type="text" id="prgrp" class="form-control form-control-sm" placeholder="Enter Purchasing Group" /></td>
-                  <td><input type="text" id="afnam" class="form-control form-control-sm" placeholder="Enter Requisition Name" /></td>
-                  <td><input type="text" id="werks" class="form-control form-control-sm" placeholder="Enter Plant" /></td>
-                  <td><input type="text" id="bwtar" class="form-control form-control-sm" placeholder="Enter Valuation" /></td>
-                  <td><input type="text" id="TRACKINGNO" class="form-control form-control-sm" placeholder="Enter Requirement Tracking Number" /></td>
-                  <td><button class="btn btn-primary" (click)="addRow()" style="background-color: maroon;">+</button></td>
-                  <td><button class="btn btn-danger" (click)="removeRow(i)" style="background-color: maroon;">Delete</button></td>
+                <tr *ngFor="let row of tableRows.controls; let i = index" [formGroup]="row">
+                  <td><input type="text" formControlName="bnfpo" class="form-control form-control-sm" placeholder="Enter Requisition Item" /></td>
+                  <td><input type="text" formControlName="AcctAssCat" class="form-control form-control-sm" placeholder="Enter Account Assignment Category" /></td>
+                  <td><input type="text" formControlName="itemcategory" class="form-control form-control-sm" placeholder="Enter Item Category" /></td>
+                  <td><input type="text" formControlName="matnr" class="form-control form-control-sm" placeholder="Enter Material Number" /></td>
+                  <td><input type="text" formControlName="stext" class="form-control form-control-sm" placeholder="Enter Short Text" /></td>
+                  <td><input type="text" formControlName="menge" class="form-control form-control-sm" placeholder="Enter Quantity" /></td>
+                  <td><input type="text" formControlName="meins" class="form-control form-control-sm" placeholder="Enter UOM" /></td>
+                  <td><input type="text" formControlName="ifdat" class="form-control form-control-sm" placeholder="Enter Delivery Date" /></td>
+                  <td><input type="text" formControlName="igort" class="form-control form-control-sm" placeholder="Enter Storage Location" /></td>
+                  <td><input type="text" formControlName="prgrp" class="form-control form-control-sm" placeholder="Enter Purchasing Group" /></td>
+                  <td><input type="text" formControlName="afnam" class="form-control form-control-sm" placeholder="Enter Requisition Name" /></td>
+                  <td><input type="text" formControlName="werks" class="form-control form-control-sm" placeholder="Enter Plant" /></td>
+                  <td><input type="text" formControlName="bwtar" class="form-control form-control-sm" placeholder="Enter Valuation" /></td>
+                  <td><input type="text" formControlName="TRACKINGNO" class="form-control form-control-sm" placeholder="Enter Requirement Tracking Number" /></td>
+                  <td><button class="btn btn-primary" (click)="addRow()" style="background-color: maroon;">+</button>
+                    <button class="btn btn-danger" (click)="removeRow(i)" style="background-color: maroon;">-</button>
+                  </td>
+                  <!-- <td></td> -->
                 </tr>
               </tbody>
             </table>
