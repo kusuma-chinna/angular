@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              <span style="color: black;"></span> Purchase Requisition Management
+            </h4>
+            <div *ngIf="tableData.length > 0" class="table-responsive mt-4">
+                <div class="search-table-outter wrapper">
+                  <table class="table table-bordered table-sm text-center">
+                    <thead class="brandcolor tableHeader">
+                        <tr>
+                          <th>
+                            <input type="checkbox" (change)="selectAll($event)" />
+                          </th>
+                          <th>PR Number</th>
+                          <th>PR Item</th>
+                          <th>Material</th>
+                          <th>Material Description</th>
+                          <th>Name of Requisitioner/Requester</th>
+                          <th>Plant</th>
+                          <th>PR Quantity</th>
+                          <th>Item Delivery Date</th>
+                          <th>Price in Purchase Requisition</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let row of tableData; let i = row">
+                          <td>
+                            <input type="checkbox" [(ngModel)]="row.isSelected" />
+                          </td>
+                          <td>{{ row.BANFN }}</td>
+                          <td>{{ row.BNFPO }}</td>
+                          <td>{{ row.MATNR }}</td>
+                          <td>{{ row.SHORT_TEXT }}</td>
+                          <td>{{ row.AFNAM }}</td>
+                          <td>{{ row.WERKS }}</td>
+                          <td>{{ row.BAMNG }}</td>
+                          <td>{{ row.EINDT | date }}</td>
+                          <td>{{ row.BAPREBAPI }}</td>
+                          <td>
+                            <div class="d-flex gap-2">
+                            <button
+                            class="btn btn-success btn-sm"
+                            (click)="approve(row)"
+                          >
+                            Approve
+                          </button>
+                          <button
+                            class="btn btn-danger btn-sm"
+                            (click)="reject()"
+                          >
+                            Reject
+                          </button>
+                           </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                      </table>
+                    
+                </div>
+              </div>
+           
+          </div>
+        </div>                    
+      </div>
+    </div>
+  </div>
+  

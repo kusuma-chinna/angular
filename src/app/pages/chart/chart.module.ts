@@ -2,10 +2,10 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { NgApexchartsModule } from "ng-apexcharts";
-import { BaseChartDirective } from "ng2-charts";
+// import { BaseChartDirective } from "ng2-charts";
 import { ChartistModule } from "ng-chartist";
 import { NgxEchartsModule } from "ngx-echarts";
-
+import { NgChartsModule } from 'ng2-charts'; 
 import { ChartRoutingModule } from "./chart-routing.module";
 
 import { ApexComponent } from "./apex/apex.component";
@@ -23,8 +23,10 @@ import { EchartComponent } from "./echart/echart.component";
   imports: [
     CommonModule,
     ChartRoutingModule,
+    NgChartsModule,
     NgApexchartsModule,
-    BaseChartDirective,
+    // BaseChartDirective,
+    
     ChartistModule,
     NgxEchartsModule.forRoot({
       echarts: () => import("echarts"),

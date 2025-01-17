@@ -1,4 +1,5 @@
 <div class="container mt-4">
+   
     <!-- Card 1: Requisition Input -->
     <div class="card mb-4">
         <div class="card-header bg-primary text-white">
@@ -10,7 +11,7 @@
                 <div class="form-group">
                     <label for="prNo" class="col-sm-3 col-form-label">PR NO:</label>
                     <div class="d-grid">
-                        <input type="text" id="prNo" class="form-control" [(ngModel)]="prNumber"
+                        <input type="text" id="prNo" name="prNo" class="form-control" [(ngModel)]="prNumber"
                             placeholder="Enter PR NO"  style="padding: 8px; margin-right: 100px;">
                     </div>
                     
@@ -22,47 +23,60 @@
             </div>    
         </div>
     </div>
-    <div *ngIf="tableData.length > 0" class="mt-4">
-        <table class="table table-bordered table-sm text-center">
+    <div *ngIf="tableRows.length > 0" class="table-responsive mt-4">
+        <div class="search-table-outter wrapper">
+          <table class="table table-bordered table-sm text-center">
             <thead class="table-success">
-                <tr>
-                    <th>Purchase Requisition Item</th>
-                    <th>AcctAssCat</th>
-                    <th>item Category</th>
-                    <th>Material No</th>
-                    <th>Short Text</th>
-                    <th>Purchase Requisition Quantity</th>
-                    <th>UOM</th>
-                    <th>Item Delivery</th>
-                    <th>Storage Location</th>
-                    <th>Purchasing Group</th>
-                    <th>Requisition Name</th>
-                    <th>Plant</th>
-                    <th>Valuation</th>
-                    <th>Requirement Tracking No</th>
-                </tr>
+              <tr>
+                <!-- <th>Action</th> -->
+                <th>Purchase Requisition Item</th>
+                <th>AcctAssCat</th>
+                <th>Item Category</th>
+                <th>Material No</th>
+                <th>Short Text</th>
+                <th>Purchase Requisition Quantity</th>
+                <th>UOM</th>
+                <th>Item Delivery</th>
+                <th>Storage Location</th>
+                <th>Purchasing Group</th>
+                <th>Requisition Name</th>
+                <th>Plant</th>
+                <th>Valuation</th>
+                <th>Requirement Tracking No</th>
+                <th>Currency</th>
+                <th>Action</th>
+              </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of tableData">
-                    <td>{{ item.bnfpo }}</td>
-                    <td>{{ item.AcctAssCat }}</td>
-                    <td>{{ item.itemcategory }}</td>
-                    <td>{{ item.matnr }}</td>
-                    <td>{{ item.stext }}</td>
-                    <td>{{ item.menge }}</td>
-                    <td>{{ item.meins }}</td>
-                    <td>{{ item.lfdat }}</td>
-                    <td>{{ item.lgort }}</td>
-                    <td>{{ item.prgrp }}</td>
-                    <td>{{ item.afnam }}</td>
-                    <td>{{ item.werks }}</td>
-                    <td>{{ item.bwtar }}</td>
-                    <td>{{ item.trackingNo }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="d-flex justify-content-end">
-            <button class="btn btn-success" (click)="saveData()">Save</button>
+                <tr *ngFor="let row of tableRows.controls; let i = index" [formGroup]="row">
+                  
+                    <td><input type="text" formControlName="bnfpo" class="form-control form-control-sm"  placeholder="Enter Requisition Item" /></td>
+                    <td><input type="text" formControlName="AcctAssCat" class="form-control form-control-sm"  placeholder="Enter Account Assignment Category" /></td>
+                    <td><input type="text" formControlName="itemcategory" class="form-control form-control-sm"  placeholder="Enter Item Category" /></td>
+                    <td><input type="text" formControlName="matnr" class="form-control form-control-sm"  placeholder="Enter Material Number" /></td>
+                    <td><input type="text" formControlName="stext" class="form-control form-control-sm"  placeholder="Enter Short Text" /></td>
+                    <td><input type="text" formControlName="menge" class="form-control form-control-sm"  placeholder="Enter Quantity" /></td>
+                    <td><input type="text" formControlName="meins" class="form-control form-control-sm"  placeholder="Enter UOM" /></td>
+                    <td><input type="text" formControlName="lfdat" class="form-control form-control-sm"  placeholder="Enter Delivery Date" /></td>
+                    <td><input type="text" formControlName="igort" class="form-control form-control-sm"  placeholder="Enter Storage Location" /></td>
+                    <td><input type="text" formControlName="prgrp" class="form-control form-control-sm"  placeholder="Enter Purchasing Group" /></td>
+                    <td><input type="text" formControlName="afnam" class="form-control form-control-sm"  placeholder="Enter Requisition Name" /></td>
+                    <td><input type="text" formControlName="werks" class="form-control form-control-sm"  placeholder="Enter Plant" /></td>
+                    <td><input type="text" formControlName="bwtar" class="form-control form-control-sm"  placeholder="Enter Valuation" /></td>
+                    <td><input type="text" formControlName="TRACKINGNO" class="form-control form-control-sm"  placeholder="Enter Requirement Tracking Number" /></td>
+                    <td><input type="text" formControlName="waers" class="form-control form-control-sm"  placeholder="Enter Category" /></td>
+
+                    <td><button class="btn btn-primary" (click)="addRow()" style="background-color: maroon;">+</button>
+                      <button class="btn btn-danger" (click)="removeRow(i)" style="background-color: maroon;">-</button>
+                    </td>
+                    <!-- <td></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            
         </div>
-    </div>
+      </div>
+      <div class="col-md-22 text-end">
+        <button class="btn btn-success" (click)="saveData()">Save</button>
+      </div>
 </div>

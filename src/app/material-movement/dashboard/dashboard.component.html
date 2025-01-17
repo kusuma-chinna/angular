@@ -1,1 +1,22 @@
-<p>dashboard works!</p>
+<div style="display: block;">
+    <h2>Bar Chart: Purchase Requisitions</h2>
+    <canvas
+      baseChart
+      [data]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [type]="barChartType"> <!-- Changed chartType to type -->
+    </canvas>
+  </div>
+  
+  <div style="display: block; margin-top: 50px;">
+    <h2>Pie Chart: Stock Overview</h2>
+    <canvas
+      baseChart
+      [data]="pieChartData"
+      [labels]="pieChartLabels"
+      [options]="pieChartOptions"
+      [type]="pieChartType"> <!-- Changed chartType to type -->
+    </canvas>
+  </div>
+  

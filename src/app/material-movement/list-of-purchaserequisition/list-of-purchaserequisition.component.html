@@ -11,39 +11,38 @@
                     <div class="col-md-3 form-group">
                         <label for="documentType">Document Type:</label>
                         <input type="text" id="documentType" class="form-control" [(ngModel)]="documentType"
-                            placeholder="Enter Document Type" />
+                            [ngModelOptions]="{standalone: true}" placeholder="Enter Document Type" />
                     </div>
                     <!-- Plant -->
                     <div class="col-md-3 form-group">
                         <label for="plant">Plant:</label>
                         <input type="text" id="plant" class="form-control" [(ngModel)]="plant"
-                            placeholder="Enter Plant Name" />
+                            [ngModelOptions]="{standalone: true}" placeholder="Enter Plant Name" />
                     </div>
                     <!-- Purchase Requisition -->
                     <div class="col-md-3 form-group">
                         <label for="purchaseRequisition">Purchase Requisition:</label>
                         <input type="text" id="purchaseRequisition" class="form-control" [(ngModel)]="purchaseRequisition"
-                            placeholder="Enter Purchase Requisition" />
+                            [ngModelOptions]="{standalone: true}" placeholder="Enter Purchase Requisition" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="material">Material:</label>
                         <input type="text" id="material" class="form-control" [(ngModel)]="material"
-                            placeholder="Enter Material" />
+                            [ngModelOptions]="{standalone: true}" placeholder="Enter Material" />
                     </div>
                     <!-- Delivery Date -->
                     <div class="col-md-3 form-group">
                         <label for="deliveryDate">Delivery Date:</label>
-                        <input type="date" id="deliveryDate" class="form-control" [(ngModel)]="deliveryDate" />
+                        <input type="date" id="deliveryDate" class="form-control" [(ngModel)]="deliveryDate"
+                            [ngModelOptions]="{standalone: true}" />
                     </div>
                     <!-- Requisitioner -->
                     <div class="col-md-3 form-group">
                         <label for="requisitioner">Requisitioner:</label>
                         <input type="text" id="requisitioner" class="form-control" [(ngModel)]="requisitioner"
-                            placeholder="Enter Requisitioner" />
+                            [ngModelOptions]="{standalone: true}" placeholder="Enter Requisitioner" />
                     </div>
                 </div>
-
-               
 
                 <!-- Button Row -->
                 <div class="row mt-3">
@@ -56,46 +55,49 @@
     </div>
 
     <!-- Table Display -->
-    <div *ngIf="tableData.length > 0" class="mt-4">
-        <table class="table table-bordered table-sm text-center">
-            <thead class="table-success">
-                <tr>
-                    <th>Purchase Requisition Number</th>
-                    <th>Purchase Requisition Item</th>
-                    <th>AcctAssCat</th>
-                    <th>Item Category</th>
-                    <th>Material No</th>
-                    <th>Short Text</th>
-                    <th>Purchase Requisition</th>
-                    <th>UOM</th>
-                    <th>Item Delivery</th>
-                    <th>Storage Location</th>
-                    <th>Purchasing Group</th>
-                    <th>Requisition Name</th>
-                    <th>Plant</th>
-                    <th>Valuation Type</th>
-                    <th>Requirement Tracking Number</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of tableData">
-                    <td>{{ item.purchaserequisitionnumber }}</td>
-                    <td>{{ item.bnfpo }}</td>
-                    <td>{{ item.AcctAssCat }}</td>
-                    <td>{{ item.itemcategory }}</td>
-                    <td>{{ item.matnr }}</td>
-                    <td>{{ item.stext }}</td>
-                    <td>{{ item.menge }}</td>
-                    <td>{{ item.meins }}</td>
-                    <td>{{ item.lfdat }}</td>
-                    <td>{{ item.lgort }}</td>
-                    <td>{{ item.prgrp }}</td>
-                    <td>{{ item.afnam }}</td>
-                    <td>{{ item.werks }}</td>
-                    <td>{{ item.bwtar }}</td>
-                    <td>{{ item.TRACKINGNO }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div *ngIf="listofpurchase.length > 0"  class="table-responsive mt-4">
+        <div class="search-table-outter wrapper">
+           <table class="table table-bordered table-sm text-center">
+                <thead class="table-success">
+                    <tr>
+                        <th>Purchase Requisition Number</th>
+                        <th>Purchase Requisition Item</th>
+                        <th>AcctAssCat</th>
+                        <th>Item Category</th>
+                        <th>Material No</th>
+                        <th>Short Text</th>
+                        <th>Purchase Requisition</th>
+                        <th>UOM</th>
+                        <th>Item Delivery</th>
+                        <th>Storage Location</th>
+                        <th>Purchasing Group</th>
+                        <th>Requisition Name</th>
+                        <th>Plant</th>
+                        <th>Valuation Type</th>
+                        <th>Requirement Tracking Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let item of listofpurchase" style="width: 9ch">
+                        <td>{{ item.EBELN }}</td>
+                        <td>{{ item.EBELP }}</td>
+                        <td></td>
+                        <td>{{ item.EPSTP }}</td>
+                        <td>{{ item.MATNR }}</td>
+                        <td>{{ item.TXZ01 }}</td>
+                        <td>{{ item.BANFN }}</td>
+                        <td>{{ item.MEINS }}</td>
+                        <td>{{ item.EEIND }}</td>
+                        <td></td>
+                        <td>{{ item.EKGRP }}</td>
+                        <td></td>
+                        <td>{{ item.WERKS }}</td>
+                        <td></td>
+                        <td>{{ item.BNFPO }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
     </div>
 </div>

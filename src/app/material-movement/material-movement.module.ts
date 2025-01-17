@@ -9,6 +9,9 @@ import { PurchaseRequisitionModificationComponent } from './purchase-requisition
 import { ListOfPurchaserequisitionComponent } from './list-of-purchaserequisition/list-of-purchaserequisition.component';
 import { MB52StockOverviewComponent } from './mb52-stock-overview/mb52-stock-overview.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PrApprovalComponent } from './pr-approval/pr-approval.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -18,13 +21,20 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ListOfPurchaserequisitionComponent,
     MB52StockOverviewComponent,
     DashboardComponent,
+    PrApprovalComponent
+
     
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialMovementRoutingModule
+    MaterialMovementRoutingModule,
+    HttpClientModule,
+    NgChartsModule     
+    
+    
+    
   ]
   
 })

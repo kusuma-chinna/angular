@@ -28,7 +28,7 @@ export const MENU: MenuItem[] = [
     // },
     { 
         id:6,
-        label: 'MATERIAL-MOVEMENT.TEXT',
+        label: 'MATERIAL-MOVEMENT',
         icon: 'bx-home-circle',
         subItems: [
             {
@@ -60,6 +60,12 @@ export const MENU: MenuItem[] = [
                 id: 11,
                 label: 'MB52-Stock-Overview',
                 link: '/material-movement/mb52-stock-overviewcomponent',
+                parentId: 6
+            },
+            {
+                id: 12,
+                label: 'PR-Approval',
+                link: '/material-movement/pr-approval',
                 parentId: 6
             },
         ]    

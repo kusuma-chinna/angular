@@ -25,15 +25,13 @@
                         <input type="text" id="storagelocation" class="form-control" [(ngModel)]="storagelocation"
                             name="storagelocation" placeholder="Enter Storage Location" />
                     </div>
+                    <!-- Batch -->
                     <div class="col-md-3 form-group">
                         <label for="batch">Batch:</label>
                         <input type="text" id="batch" class="form-control" [(ngModel)]="batch" name="batch"
                             placeholder="Enter Batch" />
                     </div>
-                    
                 </div>
-
-           
 
                 <!-- Button Row -->
                 <div class="row mt-3">
@@ -46,46 +44,46 @@
     </div>
 
     <!-- Table Display -->
-    <div *ngIf="tableData && tableData.length > 0" class="mt-4">
-        <table class="table table-bordered table-sm text-center">
-            <thead class="table-success">
-                <tr>
-                    <th>Material</th>
-                    <th>Material Description</th>
-                    <th>Plant</th>
-                    <th>Location</th>
-                    <!-- <th>Material No</th> -->
-                    <th>Batch</th>
-                    <th>Sales Order</th>
-                    <th>SO Item</th>
-                    <th>BUoM</th>
-                    <th>Unrestricted</th>
-                    <th>Value Unrestricted</th>
-                    <th>Block Stock</th>
-                    <th>Value Block Stock</th>
-                    <th>Quality Stock</th>
-                    <th>Value Quality Stock</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of tableData">
-                    <td>{{ item.material }}</td>
-                    <td>{{ item.materialDescription }}</td>
-                    <td>{{ item.plant }}</td>
-                    <td>{{ item.location }}</td>
-                    <!-- <td>{{ item.materialNo }}</td> -->
-                    <td>{{ item.batch }}</td>
-                    <td>{{ item.salesOrder }}</td>
-                    <td>{{ item.soItem }}</td>
-                    <td>{{ item.buom }}</td>
-                    <td>{{ item.unrestricted }}</td>
-                    <td>{{ item.valueUnrestricted }}</td>
-                    <td>{{ item.blockStock }}</td>
-                    <td>{{ item.valueBlockStock }}</td>
-                    <td>{{ item.qualityStock }}</td>
-                    <td>{{ item.valueQualityStock }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div *ngIf="mb52table.length" class="table-responsive mt-4">
+        <div class="search-table-outter wrapper">
+            <table class="table table-bordered table-sm text-center">
+                <thead class="table-success">
+                    <tr>
+                        <th>Material</th>
+                        <th>Material Description</th>
+                        <th>Plant</th>
+                        <th>Location</th>
+                        <th>Batch</th>
+                        <th>Sales Order</th>
+                        <th>SO Item</th>
+                        <th>BUoM</th>
+                        <th>Unrestricted</th>
+                        <th>Value Unrestricted</th>
+                        <th>Block Stock</th>
+                        <th>Value Block Stock</th>
+                        <th>Quality Stock</th>
+                        <th>Value Quality Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of mb52table">
+                        <td>{{ item.MATNR }}</td>
+                        <td>{{ item.MAKTX }}</td>
+                        <td>{{ item.WERKS }}</td>
+                        <td>{{ item.LGORT }}</td>
+                        <td>{{ item.CHARG }}</td>
+                        <td>{{ item.VBELN }}</td>
+                        <td>{{ item.POSNR }}</td>
+                        <td>{{ item.MEINS }}</td>
+                        <td>{{ item.LABST }}</td>
+                        <td>{{ item.WLABS }}</td>
+                        <td>{{ item.SPEME }}</td>
+                        <td>{{ item.WSPEM }}</td>
+                        <td>{{ item.INSME }}</td>
+                        <td>{{ item.WINSM }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
     </div>
 </div>

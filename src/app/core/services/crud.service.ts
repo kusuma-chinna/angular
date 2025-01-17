@@ -5,6 +5,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 
 export class CrudService {
+ 
+ 
+ 
+ 
+  
     constructor(private http: HttpClient) { }
 
     /***
@@ -34,10 +39,25 @@ export class CrudService {
       purchaseCreate(data: any): Observable<any> {
         return this.http.post(`${environment.apiUrl}purchase/create`, data);
       }
-      changePR(data: any){
-        return this.http.post(`${environment.apiUrl}purchase/change`, data);
-
+      changePrMethod(data: any): Observable<any> {
+        return this.http.post(`${environment.apiUrl}purchase/changeprmethod`, data);
       }
+    purchaseListMethod(data: any): Observable<any> {
+      return this.http.post(`${environment.apiUrl}purchase/list`, data);
+    }
+    
+    fetchMb52Data(data:any){
+      return this.http.post(`${environment.apiUrl}purchase/stock`, data);
+ 
+    } 
+    prApprovalListMethod() {
+      return this.http.get(`${environment.apiUrl}get/prapprovallist`);
+ 
+    } 
+    prApprovalMethod(data: any): Observable<any> {
+      return this.http.post(`${environment.apiUrl}pr/ApproveRequest`, data);
+    }
+   
       
       
 }

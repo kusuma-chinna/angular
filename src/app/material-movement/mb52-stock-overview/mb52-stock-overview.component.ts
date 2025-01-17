@@ -1,60 +1,70 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { CrudService } from 'src/app/core/services/crud.service';
+import { LoaderService } from 'src/app/core/services/loader.service';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-mb52-stock-overview',
   templateUrl: './mb52-stock-overview.component.html',
-  styleUrl: './mb52-stock-overview.component.css'
+  styleUrls: ['./mb52-stock-overview.component.css']
 })
 export class MB52StockOverviewComponent {
   material: string = '';
   plant: string = '';
   storagelocation: string = '';
   batch: string = '';
-  
-  tableData: Array<any> = []; // Holds data for the table display
+  matnr: string;
 
-  constructor() {}
+  tableData: any; // Holds data for the table display
+  // mb52table: any;
+  mb52table: any[] = []; // Initialize arrays to avoid undefined errors
+
+
+  constructor(private service: CrudService, private fb: FormBuilder,public loaderService:LoaderService) {
+    this.tableData = this.fb.array([]);
+  }
 
   // Method triggered by the Get Data button
-  getData(): void {
-    // Mock data fetching. Replace with actual API call if necessary.
-    this.tableData = [
-      {
-        material: this.material,
-        materialDescription: '',
-        plant: this.plant,
-        location: this.storagelocation,
-        // materialNo: '',
-        batch: this.batch,
-        salesOrder: '',
-        soItem: '',
-        bUoM: '',
-        unrestricted: '',
-        valueUnrestricted:'',
-        blockStock: '',
-        valueBlockStock: '',
-        qualityStock: '',
-        valueQualityStock: ''
+  getData() {
+    console.log('Get Stock Data button clicked');
+
+   
+
+    const requestBody = {
+      "WERKS": this.plant, // Plant
+      "MATNR": this.material, // Material
+      "LGORT": this.storagelocation, // Storage Location
+      "MATART": this.batch // Batch
+    };
+    this.loaderService.showLoader();
+    // Make the service call
+    this.service.fetchMb52Data(requestBody).subscribe(
+      (response: any) => {
+        console.log('Full API response:', response);
+
+        // Check and process the API response
+        if (response && Array.isArray(response.data)) {
+          this.mb52table = response.data;
+          this.loaderService.hideLoader();
+        } else {
+          Swal.fire({
+            text: 'No items found or invalid data structure.',
+            icon: 'error',
+            showConfirmButton: true
+          });
+          this.tableData = []; // Reset table data if response is invalid
+        }
       },
-      // {
-      //   material: 'MAT002',
-      //   materialDescription: 'Another Material Description',
-      //   plant: 'PLANT02',
-      //   location: 'LOC02',
-      //   materialNo: 'MAT002',
-      //   batch: 'BATCH02',
-      //   salesOrder: 'SO12346',
-      //   soItem: '20',
-      //   bUoM: 'L',
-      //   unrestricted: 50,
-      //   valueUnrestricted: 2500,
-      //   blockStock: 5,
-      //   valueBlockStock: 100,
-      //   qualityStock: 10,
-      //   valueQualityStock: 500
-      // }
-    ];
+      (error) => {
+        console.error('Error fetching Stock data:', error);
+        Swal.fire({
+          text: 'An error occurred while fetching Stock data',
+          icon: 'error',
+          showConfirmButton: true
+        });
+      }
+    );
   }
 }
-
-
